@@ -1,14 +1,0 @@
-Resources for Learning Bash
-===========================
-Here are some of the best free resources I've found.
-Shells
-------[Bash Shell Scripting Tutorial](http://steve-parker.org/sh/intro.shtml)
-This tutorial is written to help people understand some of the basics of shell script programming, and hopefully to introduce some of the possibilities of simple but powerful programming available under the bourne shell. As such, it has been written as a basis for one-on-one or group tutorials and exercises, and as a reference for subsequent use.
-[Bash Guide](http://mywiki.wooledge.org/BashGuide)
-This is a clear and well organized guide that covers everything from the basics to best practices to more advanced techniques. It's also available in PDF form here.[Bash FAQ](http://mywiki.wooledge.org/BashFAQ)
-This is a companion to the above guide. It covers some of the most frequently asked Bash questions, most being in the "How can I do x?" format.[Bash Pitfalls](http://mywiki.wooledge.org/BashPitfalls)
-This page shows common errors that Bash programmers make and how to avoid them.[Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/)
-This site covers bash basics and dips slightly into advanced usage.[Advanced Bash-Scripting Guide](http://tldp.org/LDP/abs/html/)
-This tutorial assumes no previous knowledge of scripting or programming, but progresses rapidly toward an intermediate/advanced level of instruction… all the while sneaking in little nuggets of UNIX® wisdom and lore. It serves as a textbook, a manual for self-study, and as a reference and source of knowledge on shell scripting techniques. The exercises and heavily-commented examples invite active reader participation, under the premise that the only way to really learn scripting is to write scripts.Text Editors------------If you've heard of 'emacs' and someone told you that you should use it, please reconsider.  [Learn Vim Progressively](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)
-You want to teach yourself vim (the best text editor known to human kind) in the fastest way possible. This is my way of doing it. You start by learning the minimal to survive, then you integrate all the tricks slowly.[Vi for Smarties](http://jerrywang.net/vi/)
-This eight-part tutorial, with quizzes along the way, is a good way to get up-to-speed quickly. 
