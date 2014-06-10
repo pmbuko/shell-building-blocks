@@ -2,7 +2,8 @@ Additional Resources
 ====================
 Here are some of the best free resources I've found for furthering your mastery of shell tools.
 Bash
-----[Bash Shell Scripting Tutorial](http://steve-parker.org/sh/intro.shtml)
+----[Learning the Shell](http://linuxcommand.org/learning_the_shell.php)
+This site is aimed at people using linux, but the majority of the site applies to OS X, as well. It covers shell basics and writing shell scripts.[Bash Shell Scripting Tutorial](http://steve-parker.org/sh/intro.shtml)
 This tutorial is written to help people understand some of the basics of shell script programming, and hopefully to introduce some of the possibilities of simple but powerful programming available under the bourne shell. As such, it has been written as a basis for one-on-one or group tutorials and exercises, and as a reference for subsequent use.
 [Bash Guide](http://mywiki.wooledge.org/BashGuide)
 This is a clear and well organized guide that covers everything from the basics to best practices to more advanced techniques. It's also available in PDF form here.[Bash FAQ](http://mywiki.wooledge.org/BashFAQ)
