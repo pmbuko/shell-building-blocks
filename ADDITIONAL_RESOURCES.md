@@ -2,7 +2,7 @@ Additional Resources
 ====================
 Here are some of the best free resources I've found for furthering your mastery of shell tools.
 Bash
-----[Learning the Shell](http://linuxcommand.org/learning_the_shell.php)
+----[Learning the Shell](http://linuxcommand.org/learning_the_shell.php)
 This site is aimed at people using linux, but the majority of the site applies to OS X, as well. It covers shell basics and writing shell scripts.[Bash Shell Scripting Tutorial](http://steve-parker.org/sh/intro.shtml)
 This tutorial is written to help people understand some of the basics of shell script programming, and hopefully to introduce some of the possibilities of simple but powerful programming available under the bourne shell. As such, it has been written as a basis for one-on-one or group tutorials and exercises, and as a reference for subsequent use.
 [Bash Guide](http://mywiki.wooledge.org/BashGuide)
@@ -10,7 +10,8 @@ Additional Resources
 This is a companion to the above guide. It covers some of the most frequently asked Bash questions, most being in the "How can I do x?" format.[Bash Pitfalls](http://mywiki.wooledge.org/BashPitfalls)
 This page shows common errors that Bash programmers make and how to avoid them.[Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/)
 This site covers bash basics and dips slightly into advanced usage.[Advanced Bash-Scripting Guide](http://tldp.org/LDP/abs/html/)
-This tutorial assumes no previous knowledge of scripting or programming, but progresses rapidly toward an intermediate/advanced level of instruction… all the while sneaking in little nuggets of UNIX wisdom and lore. It serves as a textbook, a manual for self-study, and as a reference and source of knowledge on shell scripting techniques. The exercises and heavily-commented examples invite active reader participation, under the premise that the only way to really learn scripting is to write scripts.
+This tutorial assumes no previous knowledge of scripting or programming, but progresses rapidly toward an intermediate/advanced level of instruction… all the while sneaking in little nuggets of UNIX wisdom and lore. It serves as a textbook, a manual for self-study, and as a reference and source of knowledge on shell scripting techniques. The exercises and heavily-commented examples invite active reader participation, under the premise that the only way to really learn scripting is to write scripts.[Shell Check](http://www.shellcheck.net/)
+ShellCheck is a static analysis and linting tool for sh/bash scripts. It's mainly focused on handling typical beginner and intermediate level syntax errors and pitfalls where the shell just gives a cryptic error message or strange behavior, but it also reports on a few more advanced issues where corner cases can cause delayed failures.
 Awk
 ---[Awk Primer](http://www.vectorsite.net/tsawk.html)
 Provides a guided tour of awk, including command-line examples and detailed descriptions of all awk functions.
@@ -18,6 +19,16 @@ Additional Resources
 The complete O'Reilly ***Awk Programming*** book, browseable online.
 [Getting started with awk](https://www.cs.hmc.edu/twiki/bin/view/QREF/Awk)
 Written for a semi-knowledgable UNIX user who is new to awk. Contains many examples which may solve a problem similar to yours.
+Sed
+---
+[The Basics of Using the Sed Stream Editor to Manipulate Text in Linux](https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux)
+
+Covers basic operations and introduces you to syntax required to use sed. 
+
+[Sed Tutorial](http://www.panix.com/~elflord/unix/sed.html)
+
+Assumes a basic knowledge of regular expressions.
+
 Regular Expressions
 -------------------
 [RegExr](http://regexr.com/)
