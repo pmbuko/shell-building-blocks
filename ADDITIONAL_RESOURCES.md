@@ -39,4 +39,23 @@ Provides an interactive "playground" interface where you can practice and test y
 
 Provides an exhaustive tutorial that starts from scratch and goes into detail about all aspects of regular expressions. Highly recommended.Text Editors------------If you've heard of 'emacs' and someone told you that you should use it, please reconsider. :)[Learn Vim Progressively](http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)
 You want to teach yourself vim (the best text editor known to human kind) in the fastest way possible. This is my way of doing it. You start by learning the minimal to survive, then you integrate all the tricks slowly.[Vi for Smarties](http://jerrywang.net/vi/)
-This eight-part tutorial, with quizzes along the way, is a good way to get up-to-speed quickly. 
+This eight-part tutorial, with quizzes along the way, is a good way to get up-to-speed quickly.
+[TextWrangler](http://www.barebones.com/products/textwrangler/download.html)
+BBEdit's free little brother. Does syntax highlighting and auto-indenting.
+[Sublime Text](http://www.sublimetext.com/)My current favorite (non-vi) editor. Very customizable and powerful.
+Alternative Terminal App
+------------------------
+
+[iTerm2](http://www.iterm2.com/#/section/home) is the best alternative to Apple's Terminal.app, with many more features -- like split panes -- and customizability.
+
+zsh - Alternative Shell
+-----------------------
+I switched from bash to zsh a couple years ago and haven't looked back. zsh is fully-compatible with bash, so all commands and syntax you're used to will continue to work, but it also has a bunch of really great features that have made it indispensable to me. Aditionally there are a couple different "zsh suites" that conveniently package up a lot of the customizability.
+
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+oh-my-zsh is an open source, community-driven framework for managing your ZSH configuration. It comes bundled with a ton of helpful functions, helpers, plugins, themes and few things that make you shout… "OH MY ZSHELL!"
+
+[Prezto](https://github.com/sorin-ionescu/prezto)
+
+Prezto is the configuration framework for Zsh; it enriches the command line interface environment with sane defaults, aliases, functions, auto completion, and prompt themes. (I switched from oh-my-zsh to prezto a few months ago.) 
