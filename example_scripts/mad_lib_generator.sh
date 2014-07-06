@@ -18,7 +18,7 @@ if [ "$#" -eq 4 ]; then
 
 # if something other than three were supplied, give help.
 elif [ "$#" -gt 0 ]; then
-  echo "You must supply exactly three arguments:"
+  echo "You must supply exactly four arguments:"
   echo "  1: your name"
   echo "  2: a number (in digit form)"
   echo "  3: a color"
