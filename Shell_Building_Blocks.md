@@ -34,7 +34,7 @@ Spaces, Quoting, and Character Escaping
 ---------------------------------------
 It's important to understand how and when to use quotes and spaces in the shell.
 
-1. Any time you might have a space as part of input, use quotes. This means pretty much *any* time you're dealing with words and not numbers, expecially when defining variables.
+1. Any time you might have a space as part of input, use quotes. This means pretty much *any* time you're dealing with words and not numbers, especially when defining variables.
 2. Any time you want to store a string in a variable, use double-quotes. (What's a string? Anything not purely numerical.)
 
 Let's look at three different examples. First, I'm setting a variable's value to the number 50. Note that I do not use spaces between the variable name, the equal sign, or the variable value. When setting numeric values, you don't need to use quotes.
