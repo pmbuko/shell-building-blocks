@@ -58,4 +58,8 @@ oh-my-zsh is an open source, community-driven framework for managing your ZSH co
 
 [Prezto](https://github.com/sorin-ionescu/prezto)
 
-Prezto is the configuration framework for Zsh; it enriches the command line interface environment with sane defaults, aliases, functions, auto completion, and prompt themes. (I switched from oh-my-zsh to prezto a few months ago.) 
+Prezto is the configuration framework for Zsh; it enriches the command line interface environment with sane defaults, aliases, functions, auto completion, and prompt themes. (I switched from oh-my-zsh to prezto a few months ago.)
+
+More Example Scripts
+--------------------
+I have a bunch of bash, python, and even some perl scripts in my [misc scripts](https://github.com/pmbuko/misc-scripts) github repo. 
