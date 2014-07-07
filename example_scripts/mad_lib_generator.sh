@@ -9,7 +9,7 @@
 ####################
 
 # Check if arguments were supplied at the command line
-# If three were supplied, save them as named variables
+# If four were supplied, save them as named variables
 if [ "$#" -eq 4 ]; then
   name=$1
   number=$2
@@ -49,7 +49,6 @@ else
   echo -n "Please supply a body part (singular form): "
   read part
 fi
-
 
 # pluralize the body part if the user-supplied number is not 1.
 if [ "$number" != 1 ]; then

@@ -5,7 +5,9 @@
 # associated users *except* for those specified in the
 # KEEPERS array. The "dangerous" commands are commented out,
 # so uncomment lines 30 and 31 after testing.
-#################### 
+#
+# In this version, the keepers array is populated from the command line
+####################
 
 # Check if running as root
 if [ "$(id -u)" -ne "0" ]; then
@@ -14,7 +16,7 @@ if [ "$(id -u)" -ne "0" ]; then
 fi
 
 # define users to keep in an array, with spaces between items
-KEEPERS=( administrator Shared )
+KEEPERS=( $@ )
 
 # iterate through list of folders in /Users
 for folder in /Users/*; do
