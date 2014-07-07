@@ -4,7 +4,7 @@ Shell Building Blocks
 Introduction
 ------------
 
-Hello, everyone. I'm Peter Bukowinski. I was a Mac Admin until late 2008, when I became a linux sysadmin. Since OS X I've been using the shell to solve problems and to complete my regular tasks faster. (Incidentally, when I say shell, I mean bash. There are many shells to choose from, but bash is the default so that's what I'm focusing on.)
+Hello, everyone. I'm Peter Bukowinski. I work at [Howard Hughes Medical Institute's Janelia Research Campus](http://janelia.org/) in Ashburn, Virginia. I was a Mac Admin until late 2008, when I became a linux sysadmin. Since OS X I've been using the shell to solve problems and to complete my regular tasks faster. (Incidentally, when I say shell, I mean bash. There are many shells to choose from, but bash is the default so that's what I'm focusing on.)
 
 2008 was just seven short years ago, and it was a much different time in the Mac Admin world than today. The number of people writing code collaboratively, or individually, to solve problems shared by the whole community was pretty small. InstaDMG was brand-new in the summer of 2008, and was written entirely in bash. Since then, it has undergone countless revisions by a growing number of collaborators, switched to python, and was recently superseded by AutoDMG. It's one of many examples that tells you coding is clearly a trending skill among Mac admins.
 
@@ -334,60 +334,6 @@ You can negate a character set by putting a caret as the first character in the 
 will match all non-vowel characters.
 
 
-Sed (not covered in talk)
--------------------------
-Sed is a "stream" editor, meaning it operates on text you "stream" to it. The feature I use most is the search-replace function.
-
-Say you have a file named short_story.txt that contains the following:
-
-	My favorite color is blue.
-	I once had a yellow car, but I wished it were blue.
-
-If your favorite color is now green, you could use sed to change how the file reads:
-
-	> sed 's/blue/green/g' short_story.txt
-	My favorite color is green.
-	I once had a yellow car, but I wished it were green.
-	
-This does not actually change the contents of the file.
-
-
-I/O Redirection (not covered in talk)
--------------------------------------
-Another important shell feature to know is I/O redirection. You probably already know that to send a command's output to a file, you use the right angle bracket '>'. Using one bracket will overwrite any file of the same name. If you want to append, use double-brackets '>>'.
-
-Here's something else you can do with I/O redirection that can come in very handy in scripts:
-
-    cat << EOF > /some/file.txt
-    This multi-line content will be written
-    to /some/file.txt exactly as it is shown
-    here. To signal the end of the text I want
-    written to the file, I add the word 'EOF'
-    on a line by itself after my content.
-    EOF
-    
-This example uses a bash feature called a 'Here Document', or 'heredoc', which tells the shell to treat certain lines as if they were a separate file. This becomes even more powerful when you combine it with variables. In this example, I'm appending two entries to my hosts file for Active Directory servers, so that if DNS is ever down I can still reach them by hostname.
-
-	ad_server1=$(host ad1.example.com | awk '{print $NF}')
-	ad_server2=$(host ad2.axample.com | awk '{print $NF}')
-    
-    cat << EOF >> /etc/hosts
-    $ad_server1    ad1.example.com ad1
-    $ad_server2    ad2.example.com ad2
-    EOF
-    
-You could also accomplish this with two echo commands:
-
-    echo "$ad_server1  ad1.example.com ad1" >> /etc/hosts
-    echo "$ad_server2  ad2.example.com ad1" >> /etc/hosts
-    
-Use whichever you prefer. I tend to use cat for multiple lines where I want to maintain formatting and line breaks, and echo whenever I'm only adding a single line.
-
-I also want to point out the awk command I used here. As I explained before, awk splits lines up into fields by whitespace. NF is a special variable in awk that holds the **Number of Fields** in the current record. When used in conjunction with a dollar sign and print, awk returns the last field. This is very handy when you either don't want to count the number of fields or you don't know the number of fields ahead of time but know you want the last one. If you want the second to last field, awk lets you use math to accomplish it:
-
-	some command | awk '{print $(NF-1)}'
-
-
 Conditional Expressions
 -----------------------
 Sometimes you need to do one thing if a certain condition is met, and another thing if the condition is NOT met. To test these conditions, you use square brackets. Anything you put inside square brackets is treated as a true-or-false test. To specify what happens when it returns true or false, you use 'if/elif/else'. Here are some of the ways you can test conditions:
@@ -561,9 +507,86 @@ This will output a numbered list of fruits. Ok, so this is a bit abstract. How a
         	rm -rf /Users/${user}
     	fi
 	done
+	
+User-supplied Input
+-------------------
+It's often tempting to try to cover all the bases with your script. You can get into some serious complexity and deeply nested if and for loops if you try too hard. My advice? Avoid it. Make your script ask for input or expect it to be supplied when calling the script from the command line.
 
-BONUS: Aliases and Functions
-----------------------------
+The shell has some convenient built-in variables that will help you parse what, if anything, was supplied at the command line when the script was called. Say I ran this command with these arguments on the command line. How would I access those arguments individially or all together from inside the script?
+
+    > my_script.sh these are args
+    
+    $0: my_script.sh   - script name    $1: these          - first argument    $2: are            - second argument      $3: args           - third argument    $#: 3              - number of arguments    $*: these are args - all arguments    $@: these are args - all arguments (in array form)
+$0 is the script's name. $1 is the first argument, $2 the second, $3 is the third. If I need to know how many arguments were passed in total, then I use the $# variable. $* contains a list of all the arguments passed to the script. So does $@, but this one keeps them in array form. These are interchangeable in most cases.
+Here's an example script that will simply return all the arguments that were passed to it. Similar to the fruits example I showed you a little while ago, this will print the results with a number preceding each argument. If there are no arguments supplied on the command line, then the script will print 0.
+    #!/bin/bash
+    arguments="$*"
+    count=0
+	for item in $arguments; do        (( count++ ))        echo "$count: $item"    done    if [ "$count" -eq 0 ]; then        echo "$count"    fi
+It is often useful to have a script run interactively and ask the user or admin for input. This requires a combination of two lines.
+    echo -n "Please enter a username: "    read username
+The first line will prompt the user for input. The -n option for echo tells it not to start a new line, so the user's input will appear on the same line. The user will then, hopefully, type in something appropriate and press enter. The second line assigns the user's input to a variable ‘username’.It's a bit beyond the scope of this talk, but I need to mention it. User input can be like opening Pandora's box. Whenever you take input from a user, it's a good idea to **verify that the input is actually a value that you expect**. For example, if the user types '1' at the username prompt, your script should catch that and not just continue on, only to error out later.
+
+Extra Content:
+==============
+Everything below here is content I did not cover in my talk, but I feel is still important for a beginning to intermediate shell scripter to know.
+
+Sed (Stream Editor)
+-------------------
+Sed is a "stream" editor, meaning it operates on text you "stream" to it. The feature I use most is the search-replace function.
+
+Say you have a file named short_story.txt that contains the following:
+
+	My favorite color is blue.
+	I once had a yellow car, but I wished it were blue.
+
+If your favorite color is now green, you could use sed to change how the file reads:
+
+	> sed 's/blue/green/g' short_story.txt
+	My favorite color is green.
+	I once had a yellow car, but I wished it were green.
+	
+This does not actually change the contents of the file.
+
+
+I/O Redirection
+---------------
+Another important shell feature to know is I/O redirection. You probably already know that to send a command's output to a file, you use the right angle bracket '>'. Using one bracket will overwrite any file of the same name. If you want to append, use double-brackets '>>'.
+
+Here's something else you can do with I/O redirection that can come in very handy in scripts:
+
+    cat << EOF > /some/file.txt
+    This multi-line content will be written
+    to /some/file.txt exactly as it is shown
+    here. To signal the end of the text I want
+    written to the file, I add the word 'EOF'
+    on a line by itself after my content.
+    EOF
+    
+This example uses a bash feature called a 'Here Document', or 'heredoc', which tells the shell to treat certain lines as if they were a separate file. This becomes even more powerful when you combine it with variables. In this example, I'm appending two entries to my hosts file for Active Directory servers, so that if DNS is ever down I can still reach them by hostname.
+
+	ad_server1=$(host ad1.example.com | awk '{print $NF}')
+	ad_server2=$(host ad2.axample.com | awk '{print $NF}')
+    
+    cat << EOF >> /etc/hosts
+    $ad_server1    ad1.example.com ad1
+    $ad_server2    ad2.example.com ad2
+    EOF
+    
+You could also accomplish this with two echo commands:
+
+    echo "$ad_server1  ad1.example.com ad1" >> /etc/hosts
+    echo "$ad_server2  ad2.example.com ad1" >> /etc/hosts
+    
+Use whichever you prefer. I tend to use cat for multiple lines where I want to maintain formatting and line breaks, and echo whenever I'm only adding a single line.
+
+I also want to point out the awk command I used here. As I explained before, awk splits lines up into fields by whitespace. NF is a special variable in awk that holds the **Number of Fields** in the current record. When used in conjunction with a dollar sign and print, awk returns the last field. This is very handy when you either don't want to count the number of fields or you don't know the number of fields ahead of time but know you want the last one. If you want the second to last field, awk lets you use math to accomplish it:
+
+	some command | awk '{print $(NF-1)}'
+
+
+Aliases and Functions
+---------------------
 In this extra section I'll introduce a couple convenient ways to customize your shell environment.
 
 An alias is a shortcut you define that runs a short command (with optional pre-defined options) whenever you type the shortcut. While  you can define an alias or function at any time by typing one into the shell, those will only last for the duration of your session. To make an alias or function permanent, you have to add it to you bash profile, which is stored in the ~/.profile file.
@@ -604,5 +627,3 @@ This will probably work, but see how the $@ gets lost in there? In addition to l
 	sp () { system_profiler SP${@}DataType; }
 	 
 Now we should be good to go.
-
-
