@@ -16,4 +16,4 @@ I sourced all my images from the internet, mostly from Creative Commons images o
 11. Lego store wall (s.53-69): Flickr, user sylvar
 12. Raspberry pi case (s.102-106): Flickr, user rooreynolds
 
-Lego movie characters were lifted from promotional and/or aterials and forced to work for no pay. I will remove them willingly if served with a cease and desist.
+Lego movie characters were lifted from promotional materials and forced to work for no pay. I will remove them willingly if served with a cease and desist.
