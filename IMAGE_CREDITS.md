@@ -3,7 +3,7 @@ Image Credits
 
 I sourced all my images from the internet, mostly from Creative Commons images on flickr.
 
-1. Buried Lego minifig (slides 1-7, 08-112): Flickr, user Walter_Benson
+1. Buried Lego minifig (slides 1-7, 108-112): Flickr, user Walter_Benson
 2. Lego baseplate (s.8-9, 90-101): Flickr, user 10ch
 3. Some blocks on gray (s.10-11): Flickr, user ReillyButler
 4. Blueprint (s.12): public domain Lego patent image
