@@ -15,7 +15,7 @@ if [ "$(id -u)" -ne "0" ]; then
     exit 1
 fi
 
-# define users to keep in an array, with spaces between items
+# add all arguments passed from the command line to an array
 KEEPERS=( $@ )
 
 # iterate through list of folders in /Users
