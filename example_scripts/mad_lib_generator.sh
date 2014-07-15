@@ -16,7 +16,7 @@ if [ "$#" -eq 4 ]; then
   color=$3
   part=$4
 
-# if something other than three were supplied, give help.
+# if something other than four were supplied, give help
 elif [ "$#" -gt 0 ]; then
   echo "You must supply exactly four arguments:"
   echo "  1: your name"
@@ -50,12 +50,12 @@ else
   read part
 fi
 
-# pluralize the body part if the user-supplied number is not 1.
+# pluralize the body part if the user-supplied number is not 1
 if [ "$number" != 1 ]; then
   part="${part}s"
 fi
 
-# Generate the silly sentence.
+# generate the silly sentence
 echo ""
 echo "Hello. My name is ${name}. I have ${number} ${color} ${part}, but I hope someday to have more."
 echo ""
