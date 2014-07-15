@@ -4,7 +4,7 @@
 # This script will delete all local home directories and
 # associated users *except* for those specified in the
 # KEEPERS array. The "dangerous" commands are commented out,
-# so uncomment lines 30 and 31 after testing.
+# so uncomment lines 32 and 33 after testing.
 #
 # In this version, the keepers array is populated from the command line
 ####################
