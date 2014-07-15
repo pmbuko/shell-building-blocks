@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# This script returns all arguments passed to it
+# from the command line as a numbered list.
+
 arguments="$*"
 
 count=0
