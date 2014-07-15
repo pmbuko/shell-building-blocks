@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Lab-iMac-xy hostname generator
+# Lab-iMac-xy hostname generator, demonstrating nested for loops
 
 # iterate through rows first
 for x in 1 2 3; do
